@@ -29,10 +29,10 @@ pipeline {
     }
   }
   post {
-    success {
+    always {
         mail to: 'kmedinam@gmail.com',
              subject: "Pipeline: ${currentBuild.fullDisplayName}",
-             body: "The pipeline ${currentBuild.fullDisplayName} completed successfully."
+             body: "${env.JOB_NAME} #${env.BUILD_NUMBER} Status: ${currentBuild.currentResult}."
     }
   }
 }
