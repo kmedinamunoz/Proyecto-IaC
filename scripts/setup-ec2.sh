@@ -103,8 +103,14 @@ networks:
     driver: bridge
 EOF
 
+docker volume create db_data
+
+docker-compose -f /home/ubuntu/docker-compose.yaml up -d
+
 # NGINX.CONF FILE
-sudo bash -c 'cat << EOF >> /home/ubuntu/nginx/nginx.conf
+cd nginx
+
+cat << EOF >> /home/ubuntu/nginx/nginx.conf
 # server {
 #     listen 80;
 #     listen [::]:80;
@@ -116,8 +122,4 @@ sudo bash -c 'cat << EOF >> /home/ubuntu/nginx/nginx.conf
 #         proxy_pass http://PUBLIC_IP:8080;
 #      }
 # }
-EOF'
-
-docker volume create db_data
-
-docker-compose -f /home/ubuntu/docker-compose.yaml up -d
+EOF
