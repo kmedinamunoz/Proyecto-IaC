@@ -108,6 +108,8 @@ docker volume create db_data
 docker-compose -f /home/ubuntu/docker-compose.yaml up -d
 
 # NGINX.CONF FILE
+cd nginx
+
 cat << EOF >> /home/ubuntu/nginx/nginx.conf
 # server {
 #     listen 80;
