@@ -7,8 +7,7 @@ resource "aws_instance" "ubuntu" {
     subnet_id                   = aws_subnet.SUBNET-1A.id
     key_name                    = var.key-name
     user_data                   = file("scripts/setup-ec2.sh")
-
-    vpc_security_group_ids      = aws_vpc.VPC.id
+    vpc_security_group_ids      = [aws_security_group.traffic.id]
 
     network_interface {
       network_interface_id = aws_network_interface.network_interface.id
