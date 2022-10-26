@@ -20,7 +20,7 @@ pipeline {
       }
     }
     stage('Terraform Apply') {
-      when{
+      when {
         branch 'main'
       }
       steps {
@@ -30,7 +30,9 @@ pipeline {
   }
   post {
     always {
-      echo "COMPLETED"
+        mail to: 'kmedinam@gmail.com',
+             subject: "Pipeline: ${currentBuild.fullDisplayName}",
+             body: "${env.JOB_NAME} #${env.BUILD_NUMBER} Status: ${currentBuild.currentResult}."
     }
   }
 }
