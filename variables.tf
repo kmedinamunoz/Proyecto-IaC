@@ -1,7 +1,7 @@
 variable "ec2-image" {
-    type        = string
-    description = "Application and OS Images (Amazon Machine Image)"
-    default     = "ami-08c40ec9ead489470"
+    type            = string
+    description     = "Application and OS Images (Amazon Machine Image)"
+    default         = "ami-08c40ec9ead489470"
 
     validation {
       condition     = length(var.ec2-image) > 4 && substr(var.ec2-image, 0,4) == "ami-"
