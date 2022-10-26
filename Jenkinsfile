@@ -20,11 +20,10 @@ pipeline {
       }
     }
     stage('Terraform Apply') {
-      when{
-        branch 'main'
-      }
-      steps {
+      if (env.BRANCH_NAME == 'main') {
         sh 'terraform apply --auto-approve'
+      } else {
+          echo 'Terraform Apply will only executes in the main branch'
       }
     }
   }
