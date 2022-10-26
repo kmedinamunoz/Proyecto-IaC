@@ -28,4 +28,11 @@ pipeline {
       }
     }
   }
+  post {
+    success {
+        mail to: 'kmedinam@gmail.com',
+             subject: "Pipeline: ${currentBuild.fullDisplayName}",
+             body: "The pipeline ${currentBuild.fullDisplayName} completed successfully."
+    }
+  }
 }
