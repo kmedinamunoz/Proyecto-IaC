@@ -12,12 +12,16 @@ pipeline {
   stages{
     stage('Terraform Init') {
       steps {
-        sh 'terraform init'
+        dir('/Users/karen.medina/Documents/TERRAFORM/Proyecto-IaC') {
+          sh 'terraform init'
+        }
       }
     }
     stage('Terraform Plan') {
       steps {
-        sh 'terraform plan'
+        dir('/Users/karen.medina/Documents/TERRAFORM/Proyecto-IaC') {
+          sh 'terraform plan'
+        }
       }
     }
     stage('Terraform Apply') {
@@ -25,7 +29,9 @@ pipeline {
         branch 'main'
       }
       steps {
-        sh 'terraform apply --auto-approve'
+        dir('/Users/karen.medina/Documents/TERRAFORM/Proyecto-IaC') {
+          sh 'terraform apply --auto-approve'
+        }
       }
     }
     // stage('Terraform Destroy') {
@@ -33,7 +39,9 @@ pipeline {
     //     branch "destroy"
     //   }
     //   steps {
-    //     sh 'terraform destroy --auto-approve'
+    //     dir('/Users/karen.medina/Documents/TERRAFORM/Proyecto-IaC') {
+    //       sh 'terraform destroy --auto-approve'
+    //     }
     //   }
     // }
   }
