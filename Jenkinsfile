@@ -8,6 +8,7 @@ pipeline {
     AWS_SECRET_ACCESS_KEY = credentials('AWS-Key')
     AWS_REGION = credentials('AWS-Region')
   }
+
   stages{
     stage('Terraform Init') {
       steps {
@@ -27,7 +28,16 @@ pipeline {
         sh 'terraform apply --auto-approve'
       }
     }
+    // stage('Terraform Destroy') {
+    //   when{
+    //     branch "destroy"
+    //   }
+    //   steps {
+    //     sh 'terraform destroy --auto-approve'
+    //   }
+    // }
   }
+
   post {
     always {
       echo "Build #${env.BUILD_NUMBER}. ${env.JOB_NAME}: ${currentBuild.currentResult}"
