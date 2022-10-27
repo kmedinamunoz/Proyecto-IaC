@@ -119,7 +119,7 @@ cat << EOF >> /home/ubuntu/nginx/nginx.conf
 #     server_name _;
 
 #     location / {
-#         proxy_pass http://Public IP:8080;
+#         proxy_pass http://Public-IP:8080;
 #      }
 # }
 EOF
