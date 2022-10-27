@@ -6,6 +6,7 @@ resource "aws_instance" "ubuntu" {
     associate_public_ip_address = true
     key_name                    = var.key-name
     user_data                   = file("scripts/setup-ec2.sh")
+    security_groups             = [aws_security_group.sg.name]
 
     tags = {
       Name = "UBUNTU"
