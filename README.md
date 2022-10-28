@@ -4,7 +4,12 @@ Repository for building an automated CI/CD pipeline with Jenkins and using Terra
 
 
 ## Prerequisites
-1. You have Jenkins installed on your local machine.
+1. You have Jenkins installed.
 2. You have Terraform installed on your local machine.
-3. You have ngrok installed on your local machine.
-4. You have AWS access keys.
+3. You have AWS access keys.
+
+
+##  Setup Steps
+1. Fork this repo.
+2. In Jenkins, create a new multibranch pipeline.
+3. Ready for use!
