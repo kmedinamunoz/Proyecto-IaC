@@ -1,5 +1,5 @@
 resource "aws_security_group" "sg" {
-  name        = "Challenge Security Groups"
+  name        = "KME Security Groups"
   description = "Allow SSH / HTTP inbound traffic"
 
   ingress {
@@ -26,6 +26,14 @@ resource "aws_security_group" "sg" {
     cidr_blocks = ["0.0.0.0/0"]
   }
 
+  ingress {
+    description  = "Allow HTTP access from home" 
+    from_port   = 0
+    to_port     = 0
+    protocol    = "-1"
+    cidr_blocks = ["181.194.224.177/32"]
+  }
+
   egress {
     from_port   = 0
     to_port     = 0
@@ -34,6 +42,6 @@ resource "aws_security_group" "sg" {
   }
 
   tags = {
-    Name = "CHALLENGE"
+    Name = "KME"
   }
 }
