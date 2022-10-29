@@ -1,5 +1,5 @@
 resource "aws_security_group" "sg" {
-  name        = "KME Security Groups"
+  name        = "Security Groups"
   description = "Allow SSH / HTTP inbound traffic"
 
   ingress {
@@ -42,6 +42,6 @@ resource "aws_security_group" "sg" {
   }
 
   tags = {
-    Name = "KME"
+    Name = "km-sg"
   }
 }
